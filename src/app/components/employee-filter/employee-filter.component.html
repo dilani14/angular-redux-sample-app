@@ -1,0 +1,9 @@
+<div class="col-auto" style="margin-bottom: 10px;">
+  <label for="type" style="margin-right: 10px;">Filter</label>
+  <select id="type" [(ngModel)]="filterType" name="type" (change)="onFilterChange()">
+    <option value="ALL">All Employees</option>
+    <option value="PERMENANT">Permanent Employees</option>
+    <option value="TEMPORARY">Temporary Employees</option>
+  </select>
+</div>
+<hr>

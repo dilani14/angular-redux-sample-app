@@ -1,0 +1,28 @@
+<h2>Add Employee</h2>
+<form (ngSubmit)="onSubmit()" #empForm="ngForm">
+  <div class="form-row">
+    <div class="col-auto" style="margin-bottom: 10px;">
+      <label for="name" style="margin-right: 10px;">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="newEmployee.name" name="name" #name="ngModel">
+    </div>
+    <div class="col-auto" style="margin-bottom: 10px;">
+      <label for="age" style="margin-right: 10px;">Age</label>
+      <input type="number" class="form-control" id="age" [(ngModel)]="newEmployee.age" name="age" #age="ngModel">
+    </div>
+    <div class="col-auto" style="margin-bottom: 10px;">
+      <label for="salary" style="margin-right: 10px;">Salary</label>
+      <input type="number" class="form-control" id="salary" [(ngModel)]="newEmployee.salary" name="salary"
+        #salary="ngModel">
+    </div>
+    <div class="col-auto" style="margin-bottom: 10px;">
+      <label for="type" style="margin-right: 10px;">Type</label>
+      <select class="form-control" id="type" [(ngModel)]="employeeType" name="type" #priority="ngModel">
+        <option value="IS_PERMENANT">Permanent</option>
+        <option value="IS_TEMPORARY">Temporary</option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </div>
+</form>
