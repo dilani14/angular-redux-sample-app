@@ -1,7 +1,7 @@
 import { NgRedux } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
-import { AppActions } from 'src/app/state/app.actions';
 import { IAppState } from 'src/app/state/app.store';
+import { FilterActions } from 'src/app/state/actions/filter.actions';
 
 @Component({
   selector: 'app-employee-filter',
@@ -15,14 +15,14 @@ export class EmployeeFilterComponent implements OnInit {
 
   filterType = '';
 
-  constructor(private ngRedux: NgRedux<IAppState>, private appActions: AppActions) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private filterActions: FilterActions) { }
 
   ngOnInit() {
     this.filterType = this.ngRedux.getState().filterOption;
   }
 
   onFilterChange() {
-    this.ngRedux.dispatch(this.appActions.setEmployeeFilter(this.filterType));
+    this.ngRedux.dispatch(this.filterActions.setEmployeeFilter(this.filterType));
   }
 
 }

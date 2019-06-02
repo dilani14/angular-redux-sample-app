@@ -11,7 +11,8 @@ import { EmployeeComponent } from './components/employee-list/employee/employee.
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { IAppState, INITIAL_STATE, appReducer } from './state/app.store';
 import { EmployeeFilterComponent } from './components/employee-filter/employee-filter.component';
-import { AppActions } from './state/app.actions';
+import { EmployeeActions } from './state/actions/employee.actions';
+import { FilterActions } from './state/actions/filter.actions';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AppActions } from './state/app.actions';
     FormsModule,
     NgReduxModule
   ],
-  providers: [AppActions],
+  providers: [EmployeeActions, FilterActions],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -38,6 +39,7 @@ export class AppModule {
     // events.
     ngRedux.configureStore(
       appReducer,
-      INITIAL_STATE);
+      INITIAL_STATE
+    );
   }
 }

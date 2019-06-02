@@ -1,8 +1,8 @@
 import { NgRedux } from '@angular-redux/store';
 import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
+import { EmployeeActions } from 'src/app/state/actions/employee.actions';
 import { IAppState } from 'src/app/state/app.store';
-import { AppActions } from 'src/app/state/app.actions';
 
 @Component({
   selector: 'app-employee',
@@ -12,12 +12,12 @@ import { AppActions } from 'src/app/state/app.actions';
 export class EmployeeComponent implements OnInit {
   @Input() employee: Employee;
 
-  constructor(private ngRedux: NgRedux<IAppState>, private appActions: AppActions) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private empActions: EmployeeActions) { }
 
   ngOnInit() {
   }
 
   deleteEmployee() {
-    this.ngRedux.dispatch(this.appActions.deleteEmployee(this.employee.id));
+    this.ngRedux.dispatch(this.empActions.deleteEmployee(this.employee.id));
   }
 }

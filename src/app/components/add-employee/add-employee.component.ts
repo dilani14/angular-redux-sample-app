@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from 'src/app/state/app.store';
-import { AppActions } from 'src/app/state/app.actions';
+import { EmployeeActions } from 'src/app/state/actions/employee.actions';
 
 @Component({
   selector: 'app-add-employee',
@@ -24,7 +24,7 @@ export class AddEmployeeComponent implements OnInit {
     isPermanent: true
   };
 
-  constructor(private ngRedux: NgRedux<IAppState>, private appActions: AppActions) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private empActions: EmployeeActions) { }
 
   ngOnInit() {
 
@@ -33,7 +33,7 @@ export class AddEmployeeComponent implements OnInit {
   onSubmit() {
     this.newEmployee.isPermanent = this.employeeType === this.IS_PERMENANT;
 
-    this.ngRedux.dispatch(this.appActions.addEmployee(this.newEmployee));
+    this.ngRedux.dispatch(this.empActions.addEmployee(this.newEmployee));
 
     this.clearEmployee();
   }

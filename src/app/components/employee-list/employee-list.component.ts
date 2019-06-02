@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { IAppState } from 'src/app/state/app.store';
 import { Observable, Subscription } from 'rxjs';
-import { EmployeeFilterOptions } from 'src/app/state/app.actions';
+import { EmployeeFilterOptions } from 'src/app/state/actions/filter.actions';
 
 @Component({
   selector: 'app-employee-list',
